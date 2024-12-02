@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+<!--comment -->
+
+{% block content %}
+<h1>{{ profile.user.username }}'s Profile</h1>
+
+{% if profile.bio %}
+<p><strong>Bio:</strong> {{ profile.bio }}</p>
+{% endif %} {% if profile.location %}
+<p><strong>Location:</strong> {{ profile.location }}</p>
+{% endif %} {% if profile.birth_date %}
+<p><strong>Birth Date:</strong> {{ profile.birth_date|date:"F j, Y" }}</p>
+{% endif %} {% if profile.profile_picture %}
+<img
+  src="{{ profile.profile_picture.url }}"
+  alt="Profile Picture"
+  class="profile-img"
+/>
+{% else %}
+<p>No profile picture available.</p>
+{% endif %}
+
+<!--comment-->
+
+<a href="{% url 'profile_edit' %}" class="btn btn-primary">Edit Profile</a>
+{% endblock %}

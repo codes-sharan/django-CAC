@@ -1,0 +1,11 @@
+<!-- profile.html -->
+{% extends 'layout.html' %} {% block content %}
+<h2>Welcome, {{ user.username }}!</h2>
+<p>Email: {{ user.email }}</p>
+{% comment %}
+<p>First name: {{ user.first_name }}</p>
+<p>Last name: {{ user.last_name }}</p>
+{% endcomment %}
+
+<!-- You can add more fields depending on your user model -->
+{% endblock %}

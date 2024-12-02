@@ -1,0 +1,36 @@
+{% extends "layout.html" %} {% block content %}
+<div class="container mt-5">
+  <h2>Search Tweets</h2>
+  <!-- Search Form -->
+  <form method="get" action="{% url 'tweets_search' %}" class="mb-4">
+    <div class="input-group">
+      <input
+        type="text"
+        name="q"
+        value="{{ request.GET.q }}"
+        class="form-control"
+        placeholder="Search Tweets..."
+        aria-label="Search"
+      />
+      <div class="input-group-append">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+    </div>
+  </form>
+
+  <!-- Display search results -->
+  {% if tweets %}
+  <ul class="list-group">
+    {% for tweet in tweets %}
+    <li class="list-group-item">
+      <h5><strong>{{ tweet.user }}:</strong></h5>
+      <p>{{ tweet.text }}</p>
+      <small class="text-muted">Posted on: {{ tweet.created_at }}</small>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="alert alert-info">No tweets found.</p>
+  {% endif %}
+</div>
+{% endblock content %}

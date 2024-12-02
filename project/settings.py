@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tweet',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -81,6 +82,20 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'django-cac',
+#         'HOST': 'localhost',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'PORT': '3306',
+#     }
+# }
+
+
 
 
 # Password validation
@@ -130,10 +145,22 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #added
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-
 LOGIN_URL = '/accounts/login'
-
-
 
 LOGIN_REDIRECT_URL = '/tweet/'
 LOGOUT_REDIRECT_URL = '/tweet/'
+
+
+
+# settings.py
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'shpanthi09@gmail.com'
+EMAIL_HOST_PASSWORD = 'ahlg rkdh mtdf obwy'
+
+# Set the email address from which you want to send reset emails
+DEFAULT_FROM_EMAIL = 'shpanthi09@gmail.com'
+
